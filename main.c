@@ -6,7 +6,7 @@
 
 #include IMPL
 
-#define DICT_FILE "./dictionary/words.txt"
+#define DICT_FILE "./dictionary/works.txt"
 
 static double diff_in_second(struct timespec t1, struct timespec t2)
 {
@@ -38,10 +38,11 @@ int main(int argc, char *argv[])
 
     /* build the entry */
     entry *pHead, *e;
-    pHead = (entry *) malloc(sizeof(entry));
+    //pHead = (entry *) malloc(sizeof(entry));
     printf("size of entry : %lu bytes\n", sizeof(entry));
-    e = pHead;
-    e->pNext = NULL;
+    pHead = NULL;
+    //e = pHead;
+    //e->pNext = NULL;
 
 #if defined(__GNUC__)
     __builtin___clear_cache((char *) pHead, (char *) pHead + sizeof(entry));
@@ -52,7 +53,8 @@ int main(int argc, char *argv[])
             i++;
         line[i - 1] = '\0';
         i = 0;
-        e = append(line, e);
+        //e = append(line, e);
+        pHead = append(line, pHead);
     }
     clock_gettime(CLOCK_REALTIME, &end);
     cpu_time1 = diff_in_second(start, end);
