@@ -20,7 +20,6 @@ typedef struct __PHONE_BOOK_ENTRY {
     char city[16];
     char state[2];
     char zip[5];
-    //struct __PHONE_BOOK_ENTRY *pNext;
 } entryDetail;
 
 entry *findName(char lastname[], entry *root);
